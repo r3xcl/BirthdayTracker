@@ -14,7 +14,6 @@
 		5F6FDF952735A1A4005FCFD5 /* BirthdayTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F6FDF932735A1A4005FCFD5 /* BirthdayTracker.xcdatamodeld */; };
 		5F6FDF972735A1A5005FCFD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F6FDF962735A1A5005FCFD5 /* Assets.xcassets */; };
 		5F6FDF9A2735A1A5005FCFD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6FDF982735A1A5005FCFD5 /* LaunchScreen.storyboard */; };
-		5F8406D22736E7F600118303 /* Birthday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8406D12736E7F600118303 /* Birthday.swift */; };
 		5F8406D62736F29D00118303 /* BirthdaysTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8406D52736F29D00118303 /* BirthdaysTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +27,6 @@
 		5F6FDF962735A1A5005FCFD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F6FDF992735A1A5005FCFD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F6FDF9B2735A1A5005FCFD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F8406D12736E7F600118303 /* Birthday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Birthday.swift; sourceTree = "<group>"; };
 		5F8406D52736F29D00118303 /* BirthdaysTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdaysTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,7 +69,6 @@
 				5F6FDF982735A1A5005FCFD5 /* LaunchScreen.storyboard */,
 				5F6FDF9B2735A1A5005FCFD5 /* Info.plist */,
 				5F6FDF932735A1A4005FCFD5 /* BirthdayTracker.xcdatamodeld */,
-				5F8406D12736E7F600118303 /* Birthday.swift */,
 			);
 			path = BirthdayTracker;
 			sourceTree = "<group>";
@@ -148,7 +145,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F8406D62736F29D00118303 /* BirthdaysTableViewController.swift in Sources */,
-				5F8406D22736E7F600118303 /* Birthday.swift in Sources */,
 				5F6FDF8F2735A1A4005FCFD5 /* AddBirthdayViewController.swift in Sources */,
 				5F6FDF8B2735A1A4005FCFD5 /* AppDelegate.swift in Sources */,
 				5F6FDF8D2735A1A4005FCFD5 /* SceneDelegate.swift in Sources */,
