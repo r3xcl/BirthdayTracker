@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol AddBirthdayViewControllerDelegate {
     func addBirthdayViewController (addBirthdayViewController : AddBirthdayViewController, didAddBirthday birthday : Birthday)
@@ -23,6 +24,10 @@ class AddBirthdayViewController: UIViewController {
         super.viewDidLoad()
         
         birthDatePicker.maximumDate = Date()
+        
+        //RU ЛОКАЛИЗАЦИЯ DATE PICKER
+        birthDatePicker.locale = Locale(identifier: "ru_RU")
+        
 
     }
     
@@ -31,9 +36,25 @@ class AddBirthdayViewController: UIViewController {
         let lastName = lastNameInput.text ?? ""
         let birthDate = birthDatePicker.date
         
-        let newBirthday = Birthday(firstName: firstName, lastName: lastName, birthDate: birthDate)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context =   appDelegate.persistentContainer.viewContext
+        
+        let newBirthday = Birthday (context: context)
+        newBirthday.firstName = firstName
+        newBirthday.lastName = lastName
+        newBirthday.birthDate = birthDate as Date?
+        newBirthday.birthDayId = UUID().uuidString
         
         delegate?.addBirthdayViewController(addBirthdayViewController: self, didAddBirthday: newBirthday)
+        dismiss(animated: true, completion: nil)
+        
+        do{
+            try context.save()
+        }catch let error {
+            print("Не сохранено :\(error).")
+        }
+        
+        
         dismiss(animated: true, completion: nil)
     }
     

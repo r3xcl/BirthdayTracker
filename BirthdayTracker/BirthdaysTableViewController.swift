@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import CoreData
 
-class BirthdaysTableViewController: UITableViewController, AddBirthdayViewControllerDelegate {
+class BirthdaysTableViewController: UITableViewController,AddBirthdayViewControllerDelegate{
     func addBirthdayViewController(addBirthdayViewController: AddBirthdayViewController, didAddBirthday birthday: Birthday) {
         
         birthdays.append(birthday)
         tableView.reloadData()
+    
         
     }
     
@@ -23,10 +25,30 @@ class BirthdaysTableViewController: UITableViewController, AddBirthdayViewContro
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dateFormatter.dateStyle = .full
+        dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
-
+        
+        //RU ЛОКАЛИЗАЦИЯ dateFormatter
+        dateFormatter.locale = Locale(identifier: "ru_RU")
+        
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = Birthday.fetchRequest() as NSFetchRequest<Birthday>
+        
+        do{
+            birthdays = try context.fetch(fetchRequest)
+        }catch let error {
+            print("Данные не загружены :\(error)")
+        }
+        tableView.reloadData()
+    }
+    
 
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -42,11 +64,17 @@ class BirthdaysTableViewController: UITableViewController, AddBirthdayViewContro
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "birthdayCellIdentifier", for: indexPath)
         let birthday = birthdays[indexPath.row]
+        let firstName = birthday.firstName ?? ""
+        let lastName = birthday.lastName ?? ""
+        cell.textLabel?.text = firstName + " " + lastName
         
-        cell.textLabel?.text = birthday.firstName + " " + birthday.lastName
-        cell.detailTextLabel?.text = dateFormatter.string(from: birthday.birthDate)
+        if let date = birthday.birthDate as Date? {
+            cell.detailTextLabel?.text = dateFormatter.string(from: date)
+        }else {
+            cell.detailTextLabel?.text = " "
+        }
         
-        return cell
+        return cell 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
