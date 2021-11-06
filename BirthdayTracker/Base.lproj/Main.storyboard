@@ -46,7 +46,7 @@
         <!--Добавить день рождения-->
         <scene sceneID="KqA-dP-Tgy">
             <objects>
-                <viewController id="bnQ-AG-cSn" sceneMemberID="viewController">
+                <viewController id="bnQ-AG-cSn" customClass="AddBirthdayViewController" customModule="BirthdayTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xcA-Ln-0Zg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,9 +129,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Добавить день рождения" id="8KW-bG-HYc">
-                        <barButtonItem key="leftBarButtonItem" title="Назад" id="hDV-TT-4nm"/>
-                        <barButtonItem key="rightBarButtonItem" title="ОК" id="Scx-Lf-Csa"/>
+                        <barButtonItem key="leftBarButtonItem" title="Назад" id="hDV-TT-4nm">
+                            <connections>
+                                <action selector="cancelBut" destination="bnQ-AG-cSn" id="0NI-Gx-rai"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="ОК" id="Scx-Lf-Csa">
+                            <connections>
+                                <action selector="saveBut" destination="bnQ-AG-cSn" id="oWE-7c-mON"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="birthDatePicker" destination="7wh-AJ-spy" id="Z5t-vg-2QU"/>
+                        <outlet property="firstNameInput" destination="8UG-j3-wyR" id="IYQ-Yn-3aq"/>
+                        <outlet property="lastNameInput" destination="1b4-h8-nJv" id="Oxw-Eu-LZH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NWd-FM-Fix" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
