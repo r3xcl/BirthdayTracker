@@ -92,13 +92,30 @@ class BirthdaysTableViewController: UITableViewController,AddBirthdayViewControl
     }
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if birthdays.count > indexPath.row{
+            let birthday = birthdays[indexPath.row]
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            context.delete(birthday)
+            birthdays.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            do{
+                try context.save()
+            } catch let error{
+                print("Изменения не сохранены :\(error)")
+            }
+        }
+    }
 
     /*
     // Override to support editing the table view.
