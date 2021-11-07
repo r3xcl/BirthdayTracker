@@ -41,6 +41,12 @@ class BirthdaysTableViewController: UITableViewController,AddBirthdayViewControl
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = Birthday.fetchRequest() as NSFetchRequest<Birthday>
         
+        //СОРТИРОВКА СПИСКА
+        
+        let sortDesc1 = NSSortDescriptor(key: "lastName", ascending: true)
+        let sortDesc2 = NSSortDescriptor(key: "firstName", ascending: true)
+        fetchRequest.sortDescriptors = [sortDesc1,sortDesc2]
+        
         do{
             birthdays = try context.fetch(fetchRequest)
         }catch let error {
