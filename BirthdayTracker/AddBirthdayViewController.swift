@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 protocol AddBirthdayViewControllerDelegate {
     func addBirthdayViewController (addBirthdayViewController : AddBirthdayViewController, didAddBirthday birthday : Birthday)
