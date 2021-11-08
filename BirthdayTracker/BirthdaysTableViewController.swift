@@ -84,6 +84,7 @@ class BirthdaysTableViewController: UITableViewController,AddBirthdayViewControl
         return cell 
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let navigationController = segue.destination as! UINavigationController
@@ -100,7 +101,7 @@ class BirthdaysTableViewController: UITableViewController,AddBirthdayViewControl
         return true
     }
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle : UITableViewCell .EditingStyle, forRowAt indexPath: IndexPath) {
         if birthdays.count > indexPath.row{
             let birthday = birthdays[indexPath.row]
             
@@ -108,14 +109,14 @@ class BirthdaysTableViewController: UITableViewController,AddBirthdayViewControl
             let context = appDelegate.persistentContainer.viewContext
             context.delete(birthday)
             birthdays.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            
             do{
                 try context.save()
             } catch let error{
                 print("Изменения не сохранены :\(error)")
             }
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
+        
     }
 
     /*
