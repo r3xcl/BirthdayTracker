@@ -18,23 +18,23 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="birthdayCellIdentifier" textLabel="qhM-jT-2sh" detailTextLabel="Jd9-ex-k7v" style="IBUITableViewCellStyleSubtitle" id="OvS-XC-N3d">
-                                <rect key="frame" x="0.0" y="44.5" width="375" height="69.5"/>
+                                <rect key="frame" x="0.0" y="44.5" width="375" height="61.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OvS-XC-N3d" id="REH-ML-41e">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qhM-jT-2sh">
-                                            <rect key="frame" x="16" y="8.5" width="40" height="24"/>
+                                            <rect key="frame" x="16" y="8" width="37" height="21.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jd9-ex-k7v">
-                                            <rect key="frame" x="16" y="36" width="62" height="21.5"/>
+                                            <rect key="frame" x="16" y="32.5" width="53" height="18"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -59,7 +59,7 @@
             </objects>
             <point key="canvasLocation" x="134.78260869565219" y="112.5"/>
         </scene>
-        <!--Добавить день рождения-->
+        <!--Добавить -->
         <scene sceneID="KqA-dP-Tgy">
             <objects>
                 <viewController id="bnQ-AG-cSn" customClass="AddBirthdayViewController" customModule="BirthdayTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -144,13 +144,13 @@
                             <constraint firstItem="7wh-AJ-spy" firstAttribute="top" secondItem="665-5J-HCl" secondAttribute="bottom" constant="8" id="xgX-r6-9Gh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Добавить день рождения" id="8KW-bG-HYc">
+                    <navigationItem key="navigationItem" title="Добавить " id="8KW-bG-HYc">
                         <barButtonItem key="leftBarButtonItem" title="Назад" id="hDV-TT-4nm">
                             <connections>
                                 <action selector="cancelBut" destination="bnQ-AG-cSn" id="0NI-Gx-rai"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="ОК" id="Scx-Lf-Csa">
+                        <barButtonItem key="rightBarButtonItem" title="Сохр." id="Scx-Lf-Csa">
                             <connections>
                                 <action selector="saveBut" destination="bnQ-AG-cSn" id="oWE-7c-mON"/>
                             </connections>
@@ -174,6 +174,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="K85-ue-KPX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
